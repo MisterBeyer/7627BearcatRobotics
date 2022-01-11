@@ -34,8 +34,7 @@ public class RobotContainer {
 
     configureButtonBindings();
     //drivebase.setDefaultCommand(new RunCommand(() -> drivebase.tankDrive(-gamePad.getRawAxis(1), -gamePad.getRawAxis(5))));
-    drivebase.setDefaultCommand(new ExampleCommand(drivebase));
-
+    drivebase.setDefaultCommand(new ExampleCommand(drivebase, () -> gamePad.getRawAxis(1), () -> gamePad.getRawAxis(5)));
   }
 
   /**
