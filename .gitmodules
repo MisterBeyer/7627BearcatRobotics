@@ -1,0 +1,3 @@
+[submodule "BearcatRobotics2022/common"]
+	path = BearcatRobotics2022/common
+	url = https://github.com/FRCTeam2910/Common.git
