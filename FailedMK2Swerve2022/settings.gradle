@@ -2,6 +2,7 @@ import org.gradle.internal.os.OperatingSystem
 
 pluginManagement {
     repositories {
+
         mavenLocal()
         gradlePluginPortal()
         String frcYear = '2022'
@@ -23,5 +24,9 @@ pluginManagement {
             name 'frcHome'
             url frcHomeMaven
         }
+
+        include ':common'
+        include ':common:robot'
+        
     }
 }

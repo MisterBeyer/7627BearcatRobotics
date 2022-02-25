@@ -4,43 +4,65 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-// import frc.robot.commands.ExampleCommand;
-// import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
-import frc.robot.commands.DriveCommand;
-import frc.robot.subsystems.DrivetrainSubsystem;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.DriveDefault;
+import frc.robot.subsystems.Drivebase;
 
 /**
- * This class is where the bulk of the robot should be declared. Since Command-based is a
- * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
+ * This class is where the bulk of the robot should be declared. Since
+ * Command-based is a
+ * "declarative" paradigm, very little robot logic should actually be handled in
+ * the {@link Robot}
+ * periodic methods (other than the scheduler calls). Instead, the structure of
+ * the robot (including
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
-  // private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-  // private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final Drivebase driveBase = new Drivebase();
 
-  private final DrivetrainSubsystem drivetrain = new DrivetrainSubsystem();
+  XboxController driveGamepad = new XboxController(0);
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  // Creates a SlewRateLimiter that limits the rate of change of the signal to 0.5 units per second
+  SlewRateLimiter filter = new SlewRateLimiter(0.5);
+
+  /**
+   * The container for the robot. Contains subsystems, OI devices, and commands.
+   */
   public RobotContainer() {
-    drivetrain.setDefaultCommand(new DriveCommand(drivetrain));
+
+    driveBase.setDefaultCommand(new DriveDefault(
+        driveBase,
+        () -> (Constants.DriveBase.SPEED_MULTIPLIER)
+            * (filter.calculate(driveGamepad.getLeftX()) * Constants.DriveBase.MAX_VELOCITY_METERS_PER_SECOND),
+        () -> (Constants.DriveBase.SPEED_MULTIPLIER)
+            * -(filter.calculate(driveGamepad.getLeftY()) * Constants.DriveBase.MAX_VELOCITY_METERS_PER_SECOND),
+        () -> (Constants.DriveBase.SPEED_MULTIPLIER)
+            * (filter.calculate(driveGamepad.getRightX()) * Constants.DriveBase.MAX_ANGULAR_VELOCITY_RADIANS_PER_SECOND)));
+
     // Configure the button bindings
     configureButtonBindings();
   }
 
   /**
-   * Use this method to define your button->command mappings. Buttons can be created by
+   * Use this method to define your button->command mappings. Buttons can be
+   * created by
    * instantiating a {@link GenericHID} or one of its subclasses ({@link
-   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
+   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing
+   * it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+
+    new JoystickButton(driveGamepad, 1)
+        .whenPressed(() -> driveBase.zeroGyroscope());
+
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
@@ -49,7 +71,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    // return m_autoCommand;
     return new InstantCommand();
   }
 }

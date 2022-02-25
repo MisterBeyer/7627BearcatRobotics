@@ -1,19 +1,24 @@
 package frc.robot;
 
 public class RobotMap {
-    public static final int DRIVETRAIN_FRONT_LEFT_ANGLE_MOTOR = 27; // CAN
-    public static final int DRIVETRAIN_FRONT_LEFT_ANGLE_ENCODER = 0; // Analog
-    public static final int DRIVETRAIN_FRONT_LEFT_DRIVE_MOTOR = 3; // CAN
+    public static final class DriveBase {
+        public static final int FRONT_LEFT_MODULE_DRIVE = 31;
+        public static final int FRONT_LEFT_MODULE_STEER = 32;
+        public static final int FRONT_LEFT_MODULE_STEER_ENCODER = 30;
 
-    public static final int DRIVETRAIN_FRONT_RIGHT_ANGLE_MOTOR = 28; // CAN
-    public static final int DRIVETRAIN_FRONT_RIGHT_ANGLE_ENCODER = 3; // Analog
-    public static final int DRIVETRAIN_FRONT_RIGHT_DRIVE_MOTOR = 2; // CAN
+        public static final int FRONT_RIGHT_MODULE_DRIVE = 34;
+        public static final int FRONT_RIGHT_MODULE_STEER = 35;
+        public static final int FRONT_RIGHT_MODULE_STEER_ENCODER = 33;
 
-    public static final int DRIVETRAIN_BACK_LEFT_ANGLE_MOTOR = 26; // CAN
-    public static final int DRIVETRAIN_BACK_LEFT_ANGLE_ENCODER = 2; // Analog
-    public static final int DRIVETRAIN_BACK_LEFT_DRIVE_MOTOR = 1; // CAN
+        public static final int BACK_LEFT_MODULE_DRIVE = 37;
+        public static final int BACK_LEFT_MODULE_STEER = 38;
+        public static final int BACK_LEFT_MODULE_STEER_ENCODER = 36;
 
-    public static final int DRIVETRAIN_BACK_RIGHT_ANGLE_MOTOR = 24; // CAN
-    public static final int DRIVETRAIN_BACK_RIGHT_ANGLE_ENCODER = 1; // Analog
-    public static final int DRIVETRAIN_BACK_RIGHT_DRIVE_MOTOR = 7; // CAN
+        public static final int BACK_RIGHT_MODULE_DRIVE = 40;
+        public static final int BACK_RIGHT_MODULE_STEER = 41;
+        public static final int BACK_RIGHT_MODULE_STEER_ENCODER = 39;
+
+        public static final int PIGEON_IMU = 45;
+    }
+
 }
