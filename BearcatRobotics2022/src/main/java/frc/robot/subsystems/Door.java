@@ -9,10 +9,23 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Door extends SubsystemBase {
+  private Servo doorActuator;
+
   /** Creates a new Door. */
   public Door() {
-    final Servo doorActuator = new Servo(Constants.DOOR_SERVO);
-    
+    doorActuator = new Servo(Constants.DOOR_SERVO);
+  }
+
+  public void setAngle(double angle) {
+    doorActuator.setAngle(angle);
+  }
+
+  public double getAngle() {
+    return doorActuator.getAngle();
+  }
+
+  public void setSpeed(double speed) {
+    doorActuator.setSpeed(speed);
   }
 
   @Override

@@ -5,28 +5,32 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Door;
 
-public class DoorDefault extends CommandBase {
-  /** Creates a new DoorDefault. */
-  public DoorDefault() {
+public class ToggleDoor extends CommandBase {
+  private final Door door;
+  /** Creates a new ToggleDoor. */
+  public ToggleDoor(Door door) {
+    this.door = door;
+
+    addRequirements(door);
+
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
-
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {}
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {}
+  public void initialize() {
+    if (door.getAngle() == 0) {
+      door.setAngle(90);
+    } else {
+      door.setAngle(0);
+    }
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
