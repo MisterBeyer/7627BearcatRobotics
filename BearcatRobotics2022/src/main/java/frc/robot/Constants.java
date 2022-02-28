@@ -65,4 +65,6 @@ public final class Constants {
         }
 
         public static final int DOOR_SERVO = 0;
+        public static final int intake_Motor_Id = 99;
+        public static int elevator_ID = 98;
 }

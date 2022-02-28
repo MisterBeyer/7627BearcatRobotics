@@ -24,9 +24,9 @@ public class Door extends SubsystemBase {
     return doorActuator.getAngle();
   }
 
-  public void setSpeed(double speed) {
-    doorActuator.setSpeed(speed);
-  }
+  // public void setSpeed(double speed) {
+  //   doorActuator.setSpeed(speed);
+  // }
 
   @Override
   public void periodic() {
