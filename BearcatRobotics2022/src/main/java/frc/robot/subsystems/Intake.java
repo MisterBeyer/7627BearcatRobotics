@@ -5,16 +5,28 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Intake extends SubsystemBase {
-  private CANSparkMax motor;
   /** Creates a new Intake. */
+  CANSparkMax motor;
+
   public Intake() {
-    // either messed up the constructor part or i just couldn't make it without the null
-    motor = new CANSparkMax(Constants.intake_Motor_Id, null);
+    motor = new CANSparkMax(Constants.Intake_ID, MotorType.kBrushless);
   }
+
+  // public void on() {
+  //  motor.set(1.0);
+  // }
+  // public void off() {
+  //   motor.set(0.0);
+  //  }
+   public void setSpeed(double speed){
+    motor.set(speed);
+   }
 
   @Override
   public void periodic() {

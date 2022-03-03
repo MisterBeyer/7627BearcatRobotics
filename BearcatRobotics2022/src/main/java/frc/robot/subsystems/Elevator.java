@@ -4,23 +4,30 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-
-
 public class Elevator extends SubsystemBase {
-  // insert VEX motor here
-  private VictorSPX motor;
   /** Creates a new Elevator. */
+  VictorSPX motor;
   public Elevator() {
-    motor = new VictorSPX(Constants.elevator_ID);
-  }
+    motor = new VictorSPX(Constants.Elevator_ID);
 
-  public void moveMotor(double angle) {
-    
+  }
+// public void on() {
+//   motor.set(ControlMode.PercentOutput, 1.0);
+// }
+// public void off() {
+//   motor.set(ControlMode.PercentOutput, 0.0);
+// }
+  public double getSpeed() {
+    return motor.getMotorOutputPercent();
+  }
+  public void setSpeed(double speed){
+    motor.set(ControlMode.PercentOutput, speed);
   }
 
   @Override

@@ -11,9 +11,13 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.DriveDefault;
+import frc.robot.commands.ReverseToggleElevatorAndIntake;
 import frc.robot.commands.ToggleDoor;
+import frc.robot.commands.ToggleElevatorAndIntake;
 import frc.robot.subsystems.Door;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.Elevator;
+import frc.robot.subsystems.Intake;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -25,11 +29,12 @@ import frc.robot.subsystems.Drivebase;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-
+  private final Intake intake = new Intake();
+  private final Elevator elevator = new Elevator();
   private final Drivebase driveBase = new Drivebase();
   private final Door door = new Door();
 
-  XboxController driveGamepad = new XboxController(0);
+  XboxController driveGamepad = new XboxController(1);
 
   // Creates a SlewRateLimiter that limits the rate of change of the signal to 0.5
   // units per second
@@ -43,11 +48,11 @@ public class RobotContainer {
     driveBase.setDefaultCommand(new DriveDefault(
         driveBase,
         () -> (Constants.DriveBase.SPEED_MULTIPLIER)
-            * (filter.calculate(driveGamepad.getLeftX()) * Constants.DriveBase.MAX_VELOCITY_METERS_PER_SECOND),
+            * (driveGamepad.getLeftX() * Constants.DriveBase.MAX_VELOCITY_METERS_PER_SECOND),
         () -> (Constants.DriveBase.SPEED_MULTIPLIER)
-            * -(filter.calculate(driveGamepad.getLeftY()) * Constants.DriveBase.MAX_VELOCITY_METERS_PER_SECOND),
+            * -(driveGamepad.getLeftY() * Constants.DriveBase.MAX_VELOCITY_METERS_PER_SECOND),
         () -> (Constants.DriveBase.SPEED_MULTIPLIER)
-            * (filter.calculate(driveGamepad.getRightX())
+            * -(driveGamepad.getRightX()
                 * Constants.DriveBase.MAX_ANGULAR_VELOCITY_RADIANS_PER_SECOND)));
 
     // Configure the button bindings
@@ -69,11 +74,15 @@ public class RobotContainer {
 
     new JoystickButton(driveGamepad, 2)
         .whenPressed(new InstantCommand(() -> door.setAngle(0)));
-
     new JoystickButton(driveGamepad, 3)
         .whenPressed(new ToggleDoor(door));
+    new JoystickButton(driveGamepad, 4)
+    .whenPressed(new ToggleElevatorAndIntake(elevator, intake));
+    // new JoystickButton(driveGamepad, 5)
+    // .whenPressed(new ReverseToggleElevatorAndIntake(elevator, intake));
 
-  }
+    // new JoystickButton(driveGamepad, 6).whenPressed(new InstantCommand(() -> elevator.setSpeed(0.3)));
+   }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.

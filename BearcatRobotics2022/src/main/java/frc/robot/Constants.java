@@ -31,10 +31,10 @@ public final class Constants {
                 // public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(61.688 + 180);
                 // public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(245.558 + 180);
 
-                public static final double FRONT_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(359);
-                public static final double FRONT_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(176);
-                public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(359);
-                public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(179);
+                public static final double FRONT_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(290.0390625);
+                public static final double FRONT_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(278.349609375);
+                public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(239.76287841796872);
+                public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(54.83551025390625);
 
                 // TODO: Tune To Your Robot
                 public static final double TRACKWIDTH = Units.inchesToMeters(23.5);
@@ -65,6 +65,6 @@ public final class Constants {
         }
 
         public static final int DOOR_SERVO = 0;
-        public static final int intake_Motor_Id = 99;
-        public static int elevator_ID = 98;
+        public static final int Intake_ID = 28;
+        public static final int Elevator_ID = 7;
 }

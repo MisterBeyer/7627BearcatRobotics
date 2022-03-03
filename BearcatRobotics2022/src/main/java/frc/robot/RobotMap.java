@@ -18,7 +18,7 @@ public class RobotMap {
         public static final int BACK_RIGHT_MODULE_STEER = 41;
         public static final int BACK_RIGHT_MODULE_STEER_ENCODER = 39;
 
-        public static final int PIGEON_IMU = 45;
+        public static final int PIGEON_IMU = 18;
     }
 
 }

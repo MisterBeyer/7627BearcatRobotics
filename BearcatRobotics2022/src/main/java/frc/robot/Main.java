@@ -1,6 +1,10 @@
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
+// CODED BY
+//Nicholas Minch
+//Kade ( don't know last name need to ask)
+// Sidd Rao ( Cedar Crest code Mentor we forced to help code half of this code with us )
 
 package frc.robot;
 
