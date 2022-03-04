@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.AutoDrive;
 import frc.robot.commands.DriveDefault;
 // import frc.robot.commands.ReverseToggleElevatorAndIntake;
 import frc.robot.commands.ToggleDoor;
@@ -92,6 +93,10 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return new InstantCommand();
+    return new AutoDrive (
+        driveBase,
+        () -> 0,
+        () -> Constants.DriveBase.SPEED_MULTIPLIER * .3,
+        () -> 0);
   }
 }
