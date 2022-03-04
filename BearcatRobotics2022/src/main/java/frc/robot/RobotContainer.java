@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.DriveDefault;
-import frc.robot.commands.ReverseToggleElevatorAndIntake;
+// import frc.robot.commands.ReverseToggleElevatorAndIntake;
 import frc.robot.commands.ToggleDoor;
 import frc.robot.commands.ToggleElevatorAndIntake;
 import frc.robot.subsystems.Door;
@@ -58,6 +58,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
   }
+  //CameraServer.startAutomaticCapture(0);
 
   /**
    * Use this method to define your button->command mappings. Buttons can be
