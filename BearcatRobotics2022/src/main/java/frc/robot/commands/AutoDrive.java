@@ -39,6 +39,7 @@ public class AutoDrive extends CommandBase {
   public void initialize() {
     timer = new Timer();
     timer.start();
+    driveBase.zeroGyroscope();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -59,6 +60,6 @@ public class AutoDrive extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return timer.get() > 1;
+    return timer.get() > 6;
   }
 }

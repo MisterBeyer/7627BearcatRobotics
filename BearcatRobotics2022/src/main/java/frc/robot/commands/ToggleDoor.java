@@ -22,7 +22,7 @@ public class ToggleDoor extends CommandBase {
   @Override
   public void initialize() {
     if (door.getAngle() == 0) {
-      door.setAngle(65);
+      door.setAngle(55);
     } else {
       door.setAngle(0);
     }

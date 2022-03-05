@@ -52,7 +52,7 @@ public final class Constants {
                 public static final double WHEELBASE = Units.inchesToMeters(23.125);
 
                 // TODO: Tune TO Your Robot
-                public static final double SPEED_MULTIPLIER = 1;
+                public static final double SPEED_MULTIPLIER = .4;
 
                 public static final double MAX_VOLTAGE = 12.0;
 

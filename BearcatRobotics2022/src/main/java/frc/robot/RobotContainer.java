@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.math.filter.SlewRateLimiter;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -12,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.AutoDrive;
 import frc.robot.commands.DriveDefault;
-// import frc.robot.commands.ReverseToggleElevatorAndIntake;
+import frc.robot.commands.ReverseToggleElevatorAndIntake;
 import frc.robot.commands.ToggleDoor;
 import frc.robot.commands.ToggleElevatorAndIntake;
 import frc.robot.subsystems.Door;
@@ -58,8 +59,8 @@ public class RobotContainer {
 
     // Configure the button bindings
     configureButtonBindings();
+    CameraServer.startAutomaticCapture(0);
   }
-  //CameraServer.startAutomaticCapture(0);
 
   /**
    * Use this method to define your button->command mappings. Buttons can be
@@ -80,8 +81,8 @@ public class RobotContainer {
         .whenPressed(new ToggleDoor(door));
     new JoystickButton(driveGamepad, 4)
     .whenPressed(new ToggleElevatorAndIntake(elevator, intake));
-    // new JoystickButton(driveGamepad, 5)
-    // .whenPressed(new ReverseToggleElevatorAndIntake(elevator, intake));
+    new JoystickButton(driveGamepad, 5)
+    .whenPressed(new ReverseToggleElevatorAndIntake(elevator, intake));
 
     // new JoystickButton(driveGamepad, 6).whenPressed(new InstantCommand(() -> elevator.setSpeed(0.3)));
    }
@@ -96,7 +97,7 @@ public class RobotContainer {
     return new AutoDrive (
         driveBase,
         () -> 0,
-        () -> Constants.DriveBase.SPEED_MULTIPLIER * .3,
+        () -> Constants.DriveBase.SPEED_MULTIPLIER * 1.7,
         () -> 0);
   }
 }
