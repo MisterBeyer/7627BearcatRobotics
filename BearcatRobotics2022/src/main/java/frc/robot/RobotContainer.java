@@ -60,6 +60,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     CameraServer.startAutomaticCapture(0);
+    CameraServer.startAutomaticCapture(1);
   }
 
   /**
@@ -97,7 +98,7 @@ public class RobotContainer {
     return new AutoDrive (
         driveBase,
         () -> 0,
-        () -> Constants.DriveBase.SPEED_MULTIPLIER * 1.7,
+        () -> Constants.DriveBase.SPEED_MULTIPLIER * -1.7,
         () -> 0);
   }
 }

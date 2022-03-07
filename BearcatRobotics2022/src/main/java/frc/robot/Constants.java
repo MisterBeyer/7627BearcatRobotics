@@ -37,15 +37,15 @@ public final class Constants {
                 // public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(54.83551025390625);
 
                 // TEST
-                public static final double FRONT_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(290.467529297);
-                public static final double FRONT_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(285.380859375);
-                public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(241.611328125);
-                public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(107.9296875);
+                // public static final double FRONT_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(290.467529297);
+                // public static final double FRONT_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(285.380859375);
+                // public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(241.611328125);
+                // public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(107.9296875);
 
-                // public static final double FRONT_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(1);
-                // public static final double FRONT_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(1);
-                // public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(1);
-                // public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(1);
+                public static final double FRONT_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(206.17968750000003 - 10);
+                public static final double FRONT_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(89.46990966796875 + 180);
+                public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(25.74920654296875 + 180 + 20);
+                public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(106.8695068359375);
 
                 // TODO: Tune To Your Robot
                 public static final double TRACKWIDTH = Units.inchesToMeters(23.5);

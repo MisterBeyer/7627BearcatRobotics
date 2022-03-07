@@ -21,10 +21,12 @@ public class ToggleDoor extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    if (door.getAngle() == 0) {
-      door.setAngle(55);
-    } else {
+    if (door.getAngle() == 70) {
       door.setAngle(0);
+      // System.out.print("angle 0");
+    } else {
+      door.setAngle(70);
+      // System.out.print("angle 50");
     }
   }
 
