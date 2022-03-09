@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.AutoDrive;
+import frc.robot.commands.AutoDoorAndDrive;
 import frc.robot.commands.DriveDefault;
 import frc.robot.commands.ReverseToggleElevatorAndIntake;
 import frc.robot.commands.ToggleDoor;
@@ -77,7 +77,7 @@ public class RobotContainer {
         .whenPressed(() -> driveBase.zeroGyroscope());
 
     new JoystickButton(driveGamepad, 2)
-        .whenPressed(new InstantCommand(() -> door.setAngle(0)));
+        .whenPressed(new InstantCommand(() -> door.setAngle(Constants.START_DOOR_ANGLE)));
     new JoystickButton(driveGamepad, 3)
         .whenPressed(new ToggleDoor(door));
     new JoystickButton(driveGamepad, 4)
@@ -95,10 +95,11 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return new AutoDrive (
+    return new AutoDoorAndDrive (
         driveBase,
+        door,
         () -> 0,
-        () -> Constants.DriveBase.SPEED_MULTIPLIER * -1.7,
+        () -> Constants.DriveBase.SPEED_MULTIPLIER * 1.7,
         () -> 0);
   }
 }

@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.subsystems.Door;
 
 public class ToggleDoor extends CommandBase {
@@ -21,11 +22,11 @@ public class ToggleDoor extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    if (door.getAngle() == 70) {
-      door.setAngle(0);
+    if (door.getAngle() == Constants.END_DOOR_ANGLE) {
+      door.setAngle(Constants.START_DOOR_ANGLE);
       // System.out.print("angle 0");
     } else {
-      door.setAngle(70);
+      door.setAngle(Constants.END_DOOR_ANGLE);
       // System.out.print("angle 50");
     }
   }

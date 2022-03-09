@@ -78,4 +78,12 @@ public final class Constants {
         public static final int DOOR_SERVO = 0;
         public static final int Intake_ID = 28;
         public static final int Elevator_ID = 7;
+        public static final double START_DOOR_ANGLE = 0;
+        public static final double END_DOOR_ANGLE = 70;
+        // double allision_is_dumb = 7.8;
+        // String allision_is_semiDumb = "qort";
+        // boolean allision_is_lessDumb = true;
+        // if ( allision_is_dumb == 7.8) {
+        //         System.out.print("declan is screaming");
+        // }
 }

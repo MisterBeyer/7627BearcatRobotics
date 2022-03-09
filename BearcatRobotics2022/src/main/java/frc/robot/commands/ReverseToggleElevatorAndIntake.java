@@ -17,7 +17,7 @@ public class ReverseToggleElevatorAndIntake extends CommandBase {
     this.elevator=elevator;
     this.intake=intake;
 
-    addRequirements(elevator,intake);
+    addRequirements(elevator, intake);
     // Use addRequirements() here to declare subsystem dependencies.
    
   }
