@@ -25,34 +25,19 @@ import edu.wpi.first.math.util.Units;
 public final class Constants {
         public static final class DriveBase {
 
-                // TODO: Tune To Your Robot
-                // public static final double FRONT_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(129.72 + 180);
-                // public static final double FRONT_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(116.098 + 180);
-                // public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(61.688 + 180);
-                // public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(245.558 + 180);
+              
 
-                // public static final double FRONT_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(290.0390625);
-                // public static final double FRONT_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(278.349609375);
-                // public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(239.76287841796872);
-                // public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(54.83551025390625);
-
-                // TEST
-                // public static final double FRONT_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(290.467529297);
-                // public static final double FRONT_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(285.380859375);
-                // public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(241.611328125);
-                // public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(107.9296875);
-
-                public static final double FRONT_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(206.17968750000003 - 10);
-                public static final double FRONT_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(89.46990966796875 + 180);
-                public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(25.74920654296875 + 180 + 20);
-                public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(106.8695068359375);
+                public static final double FRONT_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(206.17968750000003 - 10 - 26);
+                public static final double FRONT_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(89.46990966796875 + 180 - 10);
+                public static final double BACK_LEFT_MODULE_STEER_OFFSET = -Math.toRadians(25.74920654296875 + 180 + 20 + 22);
+                public static final double BACK_RIGHT_MODULE_STEER_OFFSET = -Math.toRadians(106.8695068359375 + 19);
 
                 // TODO: Tune To Your Robot
                 public static final double TRACKWIDTH = Units.inchesToMeters(23.5);
                 public static final double WHEELBASE = Units.inchesToMeters(23.125);
 
                 // TODO: Tune TO Your Robot
-                public static final double SPEED_MULTIPLIER = .4;
+                public static final double SPEED_MULTIPLIER = .5;
 
                 public static final double MAX_VOLTAGE = 12.0;
 
@@ -78,13 +63,15 @@ public final class Constants {
         public static final int DOOR_SERVO = 0;
         public static final int Intake_ID = 28;
         public static final int Elevator_ID = 7;
-        public static final double START_DOOR_ANGLE = 0;
-        public static final double END_DOOR_ANGLE = 70;
+        public static final double START_DOOR_ANGLE = 19;
+        public static final double END_DOOR_ANGLE = 89; // Cannot go over 90 degrees
         // This is a github test
         // double allision_is_dumb = 7.8;
         // String allision_is_semiDumb = "qort";
         // boolean allision_is_lessDumb = true;
         // if ( allision_is_dumb == 7.8) {
         //         System.out.print("declan is screaming");
+        // this video shows you just about everything that has to do with coding and if you ever need to know something check this video 
+        // https://www.youtube.com/watch?v=dQw4w9WgXcQ
         // }
 }

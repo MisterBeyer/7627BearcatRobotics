@@ -27,7 +27,7 @@ public class ToggleElevatorAndIntake extends CommandBase {
   public void initialize() {
     System.out.println("init");
     if (elevator.getSpeed() == 0) {
-      System.out.println("start");
+      // System.out.println("start");
       elevator.setSpeed(1.0);
       intake.setSpeed(-0.5);
 

@@ -10,6 +10,7 @@ import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import frc.robot.Constants;
 import frc.robot.subsystems.Door;
 import frc.robot.subsystems.Drivebase;
+import frc.robot.subsystems.Elevator;
 
 import java.util.function.DoubleSupplier;
 
@@ -18,10 +19,12 @@ public class AutoDoorAndDrive extends CommandBase {
   private final Drivebase driveBase;
 
   private final Door door;
+  
+  private final Elevator elevator;
 
   private Timer timer;
 
-  double doorOpenTime = 1;
+  double doorOpenTime = 3;
 
   private final DoubleSupplier translationXSupplier;
   private final DoubleSupplier translationYSupplier;
@@ -30,6 +33,7 @@ public class AutoDoorAndDrive extends CommandBase {
       /** Creates a new AutoDoorAndDrive. */
       public AutoDoorAndDrive(Drivebase driveBase,
         Door door,
+        Elevator elevator,
         DoubleSupplier translationXSupplier,
         DoubleSupplier translationYSupplier,
         DoubleSupplier rotationSupplier) {
@@ -38,8 +42,9 @@ public class AutoDoorAndDrive extends CommandBase {
     this.translationYSupplier = translationYSupplier;
     this.rotationSupplier = rotationSupplier;
     this.door = door;
+    this.elevator = elevator;
 
-    addRequirements(driveBase, door);
+    addRequirements(driveBase, door, elevator);
   }
 
   // Called when the command is initially scheduled.
@@ -49,6 +54,7 @@ public class AutoDoorAndDrive extends CommandBase {
     timer.start();
     driveBase.zeroGyroscope();
     door.setAngle(Constants.END_DOOR_ANGLE);
+    elevator.setSpeed(1.0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -59,6 +65,7 @@ public class AutoDoorAndDrive extends CommandBase {
     //   door.setAngle(Constants.START_DOOR_ANGLE);
     if (timer.get() > doorOpenTime) {
       door.setAngle(Constants.START_DOOR_ANGLE);
+      elevator.setSpeed(0);
       driveBase.drive(
           ChassisSpeeds.fromFieldRelativeSpeeds(
                 translationXSupplier.getAsDouble(),
@@ -75,6 +82,6 @@ public class AutoDoorAndDrive extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return timer.get() > doorOpenTime + 5; // Run drive command for 5 seconds
+    return timer.get() > doorOpenTime + 4; // Run drive command for 4 seconds
   }
 }

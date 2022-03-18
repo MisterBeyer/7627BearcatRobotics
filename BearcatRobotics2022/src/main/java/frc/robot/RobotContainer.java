@@ -49,13 +49,13 @@ public class RobotContainer {
 
     driveBase.setDefaultCommand(new DriveDefault(
         driveBase,
-        () -> (Constants.DriveBase.SPEED_MULTIPLIER)
-            * (driveGamepad.getLeftX() * Constants.DriveBase.MAX_VELOCITY_METERS_PER_SECOND),
-        () -> (Constants.DriveBase.SPEED_MULTIPLIER)
-            * -(driveGamepad.getLeftY() * Constants.DriveBase.MAX_VELOCITY_METERS_PER_SECOND),
-        () -> (Constants.DriveBase.SPEED_MULTIPLIER)
+        () -> (filter.calculate(Constants.DriveBase.SPEED_MULTIPLIER)
+            * (driveGamepad.getLeftX() * Constants.DriveBase.MAX_VELOCITY_METERS_PER_SECOND)),
+        () -> (filter.calculate(Constants.DriveBase.SPEED_MULTIPLIER)
+            * -(driveGamepad.getLeftY() * Constants.DriveBase.MAX_VELOCITY_METERS_PER_SECOND)),
+        () -> (filter.calculate(Constants.DriveBase.SPEED_MULTIPLIER)
             * -(driveGamepad.getRightX()
-                * Constants.DriveBase.MAX_ANGULAR_VELOCITY_RADIANS_PER_SECOND)));
+                * Constants.DriveBase.MAX_ANGULAR_VELOCITY_RADIANS_PER_SECOND))));
 
     // Configure the button bindings
     configureButtonBindings();
@@ -98,6 +98,7 @@ public class RobotContainer {
     return new AutoDoorAndDrive (
         driveBase,
         door,
+        elevator,
         () -> 0,
         () -> Constants.DriveBase.SPEED_MULTIPLIER * 1.7,
         () -> 0);

@@ -27,7 +27,7 @@ public class ReverseToggleElevatorAndIntake extends CommandBase {
   public void initialize() {
  if (elevator.getSpeed()==0) {
    elevator.setSpeed(-1.0);
-   intake.setSpeed(0.3);
+   intake.setSpeed(0.5);
   
  }  
  else {
@@ -47,6 +47,6 @@ public class ReverseToggleElevatorAndIntake extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }
